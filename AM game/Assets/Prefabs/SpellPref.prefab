@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 3094244151299209132}
   - component: {fileID: 6457196242110570158}
   - component: {fileID: 2608598972267596243}
+  - component: {fileID: 1031155425054621892}
+  - component: {fileID: 7310019986981433660}
+  - component: {fileID: 188816973110877129}
   m_Layer: 5
   m_Name: SpellPref
   m_TagString: Untagged
@@ -91,10 +94,98 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39421bd899f57b448a3ec1d938064505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 6f1a2aac23eeb7944995ba5900f3e4eb, type: 2}
+  card: {fileID: 11400000, guid: 07ee92c2c65a4c3438da71d22d15379e, type: 2}
   nameText: {fileID: 559221002477310784}
   descriptionText: {fileID: 8214771510575652751}
   spriteImage: {fileID: 8953455857309761121}
+--- !u!114 &1031155425054621892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467187100817751135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a1b97a86eb7704ab5b1018838aec10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7310019986981433660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467187100817751135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 6457196242110570158}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 188816973110877129}
+        m_TargetAssemblyTypeName: SpellDirection, Assembly-CSharp
+        m_MethodName: ChooseSpell
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &188816973110877129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467187100817751135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6488973896ffe6e4cb23f2ff9f0c610b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 11400000, guid: 07ee92c2c65a4c3438da71d22d15379e, type: 2}
+  DirectionSelectionWin: {fileID: 0}
+  FirstPosBtn: {fileID: 0}
+  SecondPosBtn: {fileID: 0}
+  ThirdPosBtn: {fileID: 0}
+  FourthPosBtn: {fileID: 0}
+  FifthPosBtn: {fileID: 0}
+  SixthPosBtn: {fileID: 0}
 --- !u!1 &1302703880208162367
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,8 +220,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.4, y: 18.9626}
-  m_SizeDelta: {x: 101.4, y: 70.6051}
+  m_AnchoredPosition: {x: -1.4, y: 13.169}
+  m_SizeDelta: {x: 101.4, y: 59.019}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4368069732963992717
 CanvasRenderer:
@@ -204,8 +295,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.4013, y: 65.9334}
-  m_SizeDelta: {x: 101.4, y: 17.9381}
+  m_AnchoredPosition: {x: -1.4008, y: 60.07789}
+  m_SizeDelta: {x: 101.4, y: 34.7983}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3643762752281245764
 CanvasRenderer:
@@ -238,17 +329,17 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: "\u0412\u044B\u0441\u0442\u0440\u0435\u043B \u043F\u043E \u0446\u0435\u043D\u0442\u0440\u0443"
 --- !u!1 &8646424916682396770
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,8 +374,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.4023, y: -44.5643}
-  m_SizeDelta: {x: 101.4, y: 47.8122}
+  m_AnchoredPosition: {x: -1.4016, y: -44.657883}
+  m_SizeDelta: {x: 101.4, y: 56.6358}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7560841200544979896
 CanvasRenderer:
@@ -316,10 +407,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
+    m_FontSize: 12
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -327,4 +418,6 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: "\u0417\u0430\u043F\u0443\u0441\u0442\u0438\u0442\u044C \u043C\u0430\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0439
+    \u0432\u044B\u0441\u0442\u0440\u0435\u043B \u043F\u043E \u043D\u0438\u0436\u043D\u0435\u0439
+    \u043B\u0438\u043D\u0438\u0438"
