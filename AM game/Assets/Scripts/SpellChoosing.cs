@@ -5,22 +5,34 @@ using UnityEngine.UI;
 
 public class SpellChoosing : MonoBehaviour
 {   
-     GameManager gameManager;
-     public SpellCard card;
-     public GameObject DirectionSelectionWin;
-     public Button FirstPosBtn;
-     public Button SecondPosBtn;
-     public Button ThirdPosBtn;
-     public Button FourthPosBtn;
-     public Button FifthPosBtn;
-     public Button SixthPosBtn; 
-     Player player;
-
+    public SpellCard card;
+    public GameObject DirectionSelectionWin;
+    public Button FirstPosBtn;
+    public Button SecondPosBtn;
+    public Button ThirdPosBtn;
+    public Button FourthPosBtn;
+    public Button FifthPosBtn;
+    public Button SixthPosBtn; 
+    public Player Player1;
+    public Player Player2;
+    public int PlayerTurn;
+    Player player;
     
-     public void ChooseSpell()
-     {
+    void PlayerDefenition()
+    {
+        if (PlayerTurn == 0)
+        {
+            player = Player1;
+        }
+        else
+        {
+            player = Player2;
+        }
+    }
 
-        gameManager.PlayerDefinition(player);
+    public void ChooseSpell()
+    {   
+        PlayerDefenition();
         DirectionSelectionWin.SetActive(true);
         if(this.card.spellType == SpellCard.Spells.movement)
         {
@@ -65,5 +77,5 @@ public class SpellChoosing : MonoBehaviour
             FifthPosBtn.interactable = true;
             SixthPosBtn.interactable = true;
         }
-     }
+    }
 }
