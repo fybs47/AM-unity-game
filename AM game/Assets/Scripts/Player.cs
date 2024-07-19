@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int Mana;
+    public int Hp;
+    public int Position;
+    public int ActionCount;
+    public List<int> PlayerActions = new List<int>();
 
-    // Update is called once per frame
-    void Update()
+    //1-6 -- is position;
+    //7 - is movement;
+    //8 - is shield;
+    //9 - is direction shot;
+    //10 - is reload;
+
+    public Player(int mana, int hp, int position, int actionCount)
     {
-        
+       Mana = mana;
+       Hp = hp;
+       Position = position;
+       ActionCount = actionCount;
     }
 }

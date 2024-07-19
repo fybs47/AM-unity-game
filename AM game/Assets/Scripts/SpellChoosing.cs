@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SpellChoosing : MonoBehaviour
 {   
+     GameManager gameManager;
      public SpellCard card;
      public GameObject DirectionSelectionWin;
      public Button FirstPosBtn;
@@ -12,25 +13,20 @@ public class SpellChoosing : MonoBehaviour
      public Button ThirdPosBtn;
      public Button FourthPosBtn;
      public Button FifthPosBtn;
-     public Button SixthPosBtn;
-
-     public Player player1;
-     public Player player2;
-     public int PlayerTurn;
+     public Button SixthPosBtn; 
      Player player;
 
-
-     
     
-
      public void ChooseSpell()
      {
+
+        gameManager.PlayerDefinition(player);
         DirectionSelectionWin.SetActive(true);
         if(this.card.spellType == SpellCard.Spells.movement)
         {
             player.PlayerActions.Add(7);
-            player.actionCount -= 3;
-            if(player.position == 2)
+            player.ActionCount -= 3;
+            if(player.Position == 2)
             {
                 FirstPosBtn.interactable = true;
                 ThirdPosBtn.interactable = true;
@@ -44,15 +40,15 @@ public class SpellChoosing : MonoBehaviour
         if(this.card.spellType == SpellCard.Spells.shield)
         {
             player.PlayerActions.Add(8);
-            player.actionCount -= 2;
-            player.mana -= 2;
+            player.ActionCount -= 2;
+            player.Mana -= 2;
         }
         else
         if(this.card.spellType == SpellCard.Spells.directionShot)
         {
             player.PlayerActions.Add(9);
-            player.actionCount -= 2;
-            player.mana -= 2;
+            player.ActionCount -= 2;
+            player.Mana -= 2;
             FourthPosBtn.interactable = true;
             FifthPosBtn.interactable = true;
             SixthPosBtn.interactable = true;
@@ -60,8 +56,8 @@ public class SpellChoosing : MonoBehaviour
         else
         {
             player.PlayerActions.Add(10);
-            player.actionCount -= 2;
-            player.mana -= 1;
+            player.ActionCount -= 2;
+            player.Mana -= 1;
             FirstPosBtn.interactable = true;
             SecondPosBtn.interactable = true;
             ThirdPosBtn.interactable = true;
