@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpellCard : ScriptableObject
 {
     
-    public enum Spells {movement, shield, directionShot, reload};
+    public enum Spells {movement, shield, directionShot, reload, cancel};
     public new string name;
     public string description;
     public Sprite sprite;

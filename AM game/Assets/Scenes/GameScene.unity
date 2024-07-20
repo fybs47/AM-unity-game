@@ -351,7 +351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &108914681
 RectTransform:
   m_ObjectHideFlags: 0
@@ -631,7 +631,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 260935511}
-        m_TargetAssemblyTypeName: DirectionChoosed, Assembly-CSharp
+        m_TargetAssemblyTypeName: SpellChoosing, Assembly-CSharp
         m_MethodName: ChooseDirection
         m_Mode: 1
         m_Arguments:
@@ -689,9 +689,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 260935506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18d464e55c1ae4e419feb4c90a942346, type: 3}
+  m_Script: {fileID: 11500000, guid: 6488973896ffe6e4cb23f2ff9f0c610b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  card: {fileID: 0}
   DirectionSelectionWin: {fileID: 108914680}
   FirstPosBtn: {fileID: 260935508}
   SecondPosBtn: {fileID: 552559983}
@@ -699,6 +700,10 @@ MonoBehaviour:
   FourthPosBtn: {fileID: 962632592}
   FifthPosBtn: {fileID: 1731376498}
   SixthPosBtn: {fileID: 510431075}
+  MagicShield: {fileID: 0}
+  Player1: {fileID: 559946998}
+  Player2: {fileID: 1813541866}
+  PlayerTurn: 0
 --- !u!224 &299479065 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
@@ -869,10 +874,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2046144867}
-  - {fileID: 1395327670}
-  - {fileID: 299479065}
   - {fileID: 587438324}
+  - {fileID: 1395327670}
+  - {fileID: 2046144867}
+  - {fileID: 299479065}
+  - {fileID: 1364862420}
   m_Father: {fileID: 1914318941}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1499,7 +1505,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 510431078}
-        m_TargetAssemblyTypeName: DirectionChoosed, Assembly-CSharp
+        m_TargetAssemblyTypeName: SpellChoosing, Assembly-CSharp
         m_MethodName: ChooseDirection
         m_Mode: 1
         m_Arguments:
@@ -1557,9 +1563,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 510431073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18d464e55c1ae4e419feb4c90a942346, type: 3}
+  m_Script: {fileID: 11500000, guid: 6488973896ffe6e4cb23f2ff9f0c610b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  card: {fileID: 0}
   DirectionSelectionWin: {fileID: 108914680}
   FirstPosBtn: {fileID: 260935508}
   SecondPosBtn: {fileID: 552559983}
@@ -1567,6 +1574,10 @@ MonoBehaviour:
   FourthPosBtn: {fileID: 962632592}
   FifthPosBtn: {fileID: 1731376498}
   SixthPosBtn: {fileID: 510431075}
+  MagicShield: {fileID: 0}
+  Player1: {fileID: 559946998}
+  Player2: {fileID: 1813541866}
+  PlayerTurn: 0
 --- !u!1 &511097731
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,7 +1797,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 552559986}
-        m_TargetAssemblyTypeName: DirectionChoosed, Assembly-CSharp
+        m_TargetAssemblyTypeName: SpellChoosing, Assembly-CSharp
         m_MethodName: ChooseDirection
         m_Mode: 1
         m_Arguments:
@@ -1844,9 +1855,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 552559981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18d464e55c1ae4e419feb4c90a942346, type: 3}
+  m_Script: {fileID: 11500000, guid: 6488973896ffe6e4cb23f2ff9f0c610b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  card: {fileID: 0}
   DirectionSelectionWin: {fileID: 108914680}
   FirstPosBtn: {fileID: 260935508}
   SecondPosBtn: {fileID: 552559983}
@@ -1854,6 +1866,10 @@ MonoBehaviour:
   FourthPosBtn: {fileID: 962632592}
   FifthPosBtn: {fileID: 1731376498}
   SixthPosBtn: {fileID: 510431075}
+  MagicShield: {fileID: 0}
+  Player1: {fileID: 559946998}
+  Player2: {fileID: 1813541866}
+  PlayerTurn: 0
 --- !u!1 &559946996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,10 +1920,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d586e8bca11064fbf1f3b36c62174f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mana: 0
-  Hp: 0
-  Position: 0
-  ActionCount: 0
+  Mana: 30
+  Hp: 10
+  Position: 2
+  ActionCount: 5
   PlayerActions: 
 --- !u!114 &559946999
 MonoBehaviour:
@@ -1958,7 +1974,15 @@ PrefabInstance:
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: card
       value: 
-      objectReference: {fileID: 11400000, guid: 187b16303f2bd6e41963091644be6f67, type: 2}
+      objectReference: {fileID: 11400000, guid: 5bc511a4d55eca84c858b9850e1f88ed, type: 2}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Player1
+      value: 
+      objectReference: {fileID: 559946998}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Player2
+      value: 
+      objectReference: {fileID: 1813541866}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: FifthPosBtn
       value: 
@@ -1989,12 +2013,12 @@ PrefabInstance:
       objectReference: {fileID: 108914680}
     - target: {fileID: 467187100817751135, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: m_Name
-      value: SpellPref (3)
+      value: Movement
       objectReference: {fileID: 0}
     - target: {fileID: 2608598972267596243, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: card
       value: 
-      objectReference: {fileID: 11400000, guid: 187b16303f2bd6e41963091644be6f67, type: 2}
+      objectReference: {fileID: 11400000, guid: 5bc511a4d55eca84c858b9850e1f88ed, type: 2}
     - target: {fileID: 7310019986981433660, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ChooseSpell
@@ -2101,6 +2125,14 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 11400000, guid: 187b16303f2bd6e41963091644be6f67, type: 2}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Player1
+      value: 
+      objectReference: {fileID: 559946998}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Player2
+      value: 
+      objectReference: {fileID: 1813541866}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: FifthPosBtn
       value: 
@@ -2579,7 +2611,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 919660866}
-        m_TargetAssemblyTypeName: DirectionChoosed, Assembly-CSharp
+        m_TargetAssemblyTypeName: SpellChoosing, Assembly-CSharp
         m_MethodName: ChooseDirection
         m_Mode: 1
         m_Arguments:
@@ -2637,9 +2669,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 919660861}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18d464e55c1ae4e419feb4c90a942346, type: 3}
+  m_Script: {fileID: 11500000, guid: 6488973896ffe6e4cb23f2ff9f0c610b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  card: {fileID: 0}
   DirectionSelectionWin: {fileID: 108914680}
   FirstPosBtn: {fileID: 260935508}
   SecondPosBtn: {fileID: 552559983}
@@ -2647,6 +2680,10 @@ MonoBehaviour:
   FourthPosBtn: {fileID: 962632592}
   FifthPosBtn: {fileID: 1731376498}
   SixthPosBtn: {fileID: 510431075}
+  MagicShield: {fileID: 0}
+  Player1: {fileID: 559946998}
+  Player2: {fileID: 1813541866}
+  PlayerTurn: 0
 --- !u!1 &962632590
 GameObject:
   m_ObjectHideFlags: 0
@@ -2732,7 +2769,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 962632595}
-        m_TargetAssemblyTypeName: DirectionChoosed, Assembly-CSharp
+        m_TargetAssemblyTypeName: SpellChoosing, Assembly-CSharp
         m_MethodName: ChooseDirection
         m_Mode: 1
         m_Arguments:
@@ -2790,9 +2827,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 962632590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18d464e55c1ae4e419feb4c90a942346, type: 3}
+  m_Script: {fileID: 11500000, guid: 6488973896ffe6e4cb23f2ff9f0c610b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  card: {fileID: 0}
   DirectionSelectionWin: {fileID: 108914680}
   FirstPosBtn: {fileID: 260935508}
   SecondPosBtn: {fileID: 552559983}
@@ -2800,6 +2838,10 @@ MonoBehaviour:
   FourthPosBtn: {fileID: 962632592}
   FifthPosBtn: {fileID: 1731376498}
   SixthPosBtn: {fileID: 510431075}
+  MagicShield: {fileID: 0}
+  Player1: {fileID: 559946998}
+  Player2: {fileID: 1813541866}
+  PlayerTurn: 0
 --- !u!1 &1051005114
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,6 +3257,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 559946998}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Player1
+      value: 
+      objectReference: {fileID: 559946998}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Player2
+      value: 
+      objectReference: {fileID: 1813541866}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: FifthPosBtn
       value: 
       objectReference: {fileID: 1731376498}
@@ -3607,6 +3657,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242910659}
   m_CullTransparentMesh: 1
+--- !u!224 &1364862420 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+  m_PrefabInstance: {fileID: 2044786574}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1380826916
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3620,6 +3675,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 542615b36020e204b8da16f3b22cd2b7, type: 2}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Player1
+      value: 
+      objectReference: {fileID: 559946998}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Player2
+      value: 
+      objectReference: {fileID: 1813541866}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: FifthPosBtn
       value: 
       objectReference: {fileID: 1731376498}
@@ -3627,6 +3690,10 @@ PrefabInstance:
       propertyPath: FirstPosBtn
       value: 
       objectReference: {fileID: 260935508}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: MagicShield
+      value: 
+      objectReference: {fileID: 1395327672}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: SixthPosBtn
       value: 
@@ -3749,6 +3816,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
   m_PrefabInstance: {fileID: 1380826916}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1395327672 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7310019986981433660, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+  m_PrefabInstance: {fileID: 1380826916}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1455692901
 GameObject:
   m_ObjectHideFlags: 0
@@ -3831,7 +3909,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1455692904}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+        m_TargetAssemblyTypeName: SpellChoosing, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1455692904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4056,58 +4146,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669526687}
   m_CullTransparentMesh: 1
---- !u!1 &1715976948
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1715976950}
-  - component: {fileID: 1715976949}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1715976949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1715976948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6488973896ffe6e4cb23f2ff9f0c610b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 07ee92c2c65a4c3438da71d22d15379e, type: 2}
-  DirectionSelectionWin: {fileID: 0}
-  FirstPosBtn: {fileID: 0}
-  SecondPosBtn: {fileID: 0}
-  ThirdPosBtn: {fileID: 0}
-  FourthPosBtn: {fileID: 0}
-  FifthPosBtn: {fileID: 0}
-  SixthPosBtn: {fileID: 0}
---- !u!4 &1715976950
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1715976948}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.21, y: -0.7540939, z: -0.0076127537}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1722465900
 GameObject:
   m_ObjectHideFlags: 0
@@ -4270,7 +4308,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1731376501}
-        m_TargetAssemblyTypeName: DirectionChoosed, Assembly-CSharp
+        m_TargetAssemblyTypeName: SpellChoosing, Assembly-CSharp
         m_MethodName: ChooseDirection
         m_Mode: 1
         m_Arguments:
@@ -4328,9 +4366,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1731376496}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18d464e55c1ae4e419feb4c90a942346, type: 3}
+  m_Script: {fileID: 11500000, guid: 6488973896ffe6e4cb23f2ff9f0c610b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  card: {fileID: 0}
   DirectionSelectionWin: {fileID: 108914680}
   FirstPosBtn: {fileID: 260935508}
   SecondPosBtn: {fileID: 552559983}
@@ -4338,6 +4377,10 @@ MonoBehaviour:
   FourthPosBtn: {fileID: 962632592}
   FifthPosBtn: {fileID: 1731376498}
   SixthPosBtn: {fileID: 510431075}
+  MagicShield: {fileID: 0}
+  Player1: {fileID: 559946998}
+  Player2: {fileID: 1813541866}
+  PlayerTurn: 0
 --- !u!1 &1801041578
 GameObject:
   m_ObjectHideFlags: 0
@@ -4521,10 +4564,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d586e8bca11064fbf1f3b36c62174f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mana: 0
-  Hp: 0
-  Position: 0
-  ActionCount: 0
+  Mana: 30
+  Hp: 10
+  Position: 5
+  ActionCount: 5
   PlayerActions: 
 --- !u!114 &1813541867
 MonoBehaviour:
@@ -4950,6 +4993,159 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1996269527}
   m_CullTransparentMesh: 1
+--- !u!1001 &2044786574
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 381251347}
+    m_Modifications:
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 11400000, guid: 57d35ed2b01f16b499a4bbed9eabe5a0, type: 2}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Player1
+      value: 
+      objectReference: {fileID: 559946998}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Player2
+      value: 
+      objectReference: {fileID: 1813541866}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: FifthPosBtn
+      value: 
+      objectReference: {fileID: 1731376498}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: FirstPosBtn
+      value: 
+      objectReference: {fileID: 260935508}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: MagicShield
+      value: 
+      objectReference: {fileID: 1395327672}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: SixthPosBtn
+      value: 
+      objectReference: {fileID: 510431075}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: ThirdPosBtn
+      value: 
+      objectReference: {fileID: 919660863}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: FourthPosBtn
+      value: 
+      objectReference: {fileID: 962632592}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: SecondPosBtn
+      value: 
+      objectReference: {fileID: 552559983}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: DirectionSelectionWin
+      value: 
+      objectReference: {fileID: 108914680}
+    - target: {fileID: 467187100817751135, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_Name
+      value: Cancel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608598972267596243, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 11400000, guid: 57d35ed2b01f16b499a4bbed9eabe5a0, type: 2}
+    - target: {fileID: 7310019986981433660, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Cancel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310019986981433660, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SpellChoosing, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 129.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 241.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
 --- !u!224 &2046144867 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
@@ -5173,4 +5369,3 @@ SceneRoots:
   - {fileID: 1613286264}
   - {fileID: 1914318941}
   - {fileID: 505145890}
-  - {fileID: 1715976950}
