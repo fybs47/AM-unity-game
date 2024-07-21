@@ -16,11 +16,24 @@ public class SpellChoosing : MonoBehaviour
     public Button FifthPosBtn;
     public Button SixthPosBtn; 
 
-    public Button MagicShield;
+    public SpellCard Movement;
+    public SpellCard MagicShield;
+    public SpellCard DirectionShot;
+    public SpellCard Reload;
+    public Button MovementBtn;
+    public Button MagicShieldBtn;
+    public Button DirectionShotBtn;
+    public Button ReloadBtn;
     public Player Player1;
     public Player Player2;
     Player player;
-    
+    public static bool UsedShield;
+
+    void Start()
+    {
+        UsedShield = false;
+    }
+
     void PlayerDefenition()
     {
         if (TurnController.instance.PlayerTurn == 0)
@@ -61,12 +74,23 @@ public class SpellChoosing : MonoBehaviour
             player.PlayerActions.Add(6);
         }
 
+        MovementBtn.interactable = true;
+        if (UsedShield == false)
+        {
+            Debug.Log("used sdield is: " + UsedShield.ToString());
+            MagicShieldBtn.interactable = true; 
+        }
+        DirectionShotBtn.interactable = true;
+        ReloadBtn.interactable = true;
+
         FirstPosBtn.interactable = false;
         SecondPosBtn.interactable = false;
         ThirdPosBtn.interactable = false;
         FourthPosBtn.interactable = false;
         FifthPosBtn.interactable = false;
         SixthPosBtn.interactable = false;
+
+
 
         DirectionSelectionWin.SetActive(false);
      }
@@ -77,44 +101,82 @@ public class SpellChoosing : MonoBehaviour
         if(this.card.spellType == SpellCard.Spells.movement &&  player.ActionCount >= 3)
         {
             DirectionSelectionWin.SetActive(true);
+            MovementBtn.interactable = false;
+            MagicShieldBtn.interactable = false;
+            DirectionShotBtn.interactable = false;
+            ReloadBtn.interactable = false;
             player.PlayerActions.Add(7);
-            player.ActionCount -= 3;
-            if(player.Position == 2)
+            player.ActionCount -= Movement.actionsCost;
+            if (TurnController.instance.PlayerTurn == 0)
             {
-                FirstPosBtn.interactable = true;
-                ThirdPosBtn.interactable = true;
+                if(player.Position == 2)
+                {
+                    FirstPosBtn.interactable = true;
+                    ThirdPosBtn.interactable = true;
+                }
+                else
+                {
+                    SecondPosBtn.interactable= true;
+                }
             }
-            else
+                else
             {
-                SecondPosBtn.interactable= true;
-            }
+                if(player.Position == 5)
+                {
+                    FourthPosBtn.interactable = true;
+                    SixthPosBtn.interactable = true;
+                }
+                else
+                {
+                    FifthPosBtn.interactable= true;
+                }
+            } 
         }
         else
         if(this.card.spellType == SpellCard.Spells.shield && player.ActionCount >= 2 &&  player.Mana >= 2)
         {
             player.PlayerActions.Add(8);
-            player.ActionCount -= 2;
-            player.Mana -= 2;
-            MagicShield.interactable = false;
+            player.ActionCount -= MagicShield.actionsCost;
+            player.Mana -= MagicShield.manacost;
+            UsedShield = true;
+            Debug.Log("in Spell: " + UsedShield.ToString());
+            MagicShieldBtn.interactable = false;
         }
         else
         if(this.card.spellType == SpellCard.Spells.directionShot && player.ActionCount >= 2 &&  player.Mana >= 2)
         {
             DirectionSelectionWin.SetActive(true);
+            MovementBtn.interactable = false;
+            MagicShieldBtn.interactable = false;
+            DirectionShotBtn.interactable = false;
+            ReloadBtn.interactable = false;
             player.PlayerActions.Add(9);
-            player.ActionCount -= 2;
-            player.Mana -= 2;
+            player.ActionCount -= DirectionShot.actionsCost;
+            player.Mana -= DirectionShot.manacost;
+            if (TurnController.instance.PlayerTurn == 0)
+            {
             FourthPosBtn.interactable = true;
             FifthPosBtn.interactable = true;
             SixthPosBtn.interactable = true;
+            }
+            else
+            {
+                FirstPosBtn.interactable = true;
+                SecondPosBtn.interactable = true;
+                ThirdPosBtn.interactable = true;
+            }
         }
         else
         if(this.card.spellType == SpellCard.Spells.reload && player.ActionCount >= 2 &&  player.Mana >= 1)
         {
             DirectionSelectionWin.SetActive(true);
+            MovementBtn.interactable = false;
+            MagicShieldBtn.interactable = false;
+            DirectionShotBtn.interactable = false;
+            ReloadBtn.interactable = false;
             player.PlayerActions.Add(10);
-            player.ActionCount -= 2;
-            player.Mana -= 1;
+            player.ActionCount -= Reload.actionsCost;
+            player.Mana -= Reload.manacost;
             FirstPosBtn.interactable = true;
             SecondPosBtn.interactable = true;
             ThirdPosBtn.interactable = true;
@@ -122,6 +184,7 @@ public class SpellChoosing : MonoBehaviour
             FifthPosBtn.interactable = true;
             SixthPosBtn.interactable = true;
         }
+        Debug.Log("in the end of this method: " + UsedShield.ToString());
     }
 
     public void Cancel()
@@ -133,6 +196,14 @@ public class SpellChoosing : MonoBehaviour
         FourthPosBtn.interactable = false;
         FifthPosBtn.interactable = false;
         SixthPosBtn.interactable = false;
+
+        MovementBtn.interactable = true;
+        if (UsedShield == false)
+        {
+            MagicShieldBtn.interactable = true; 
+        }
+        DirectionShotBtn.interactable = true;
+        ReloadBtn.interactable = true;
 
         DirectionSelectionWin.SetActive(false);
         bool flag = true;
@@ -147,34 +218,39 @@ public class SpellChoosing : MonoBehaviour
             {
                 flag = false;
                 player.PlayerActions.RemoveAt(player.PlayerActions.Count-1);
-                player.ActionCount += 3;
+                player.ActionCount += Movement.actionsCost;
             }
             else
             if (player.PlayerActions.Last<int>() == 8)
             {
                 flag = false;
-                MagicShield.interactable = true;
+                MagicShieldBtn.interactable = true;
+                UsedShield = false;
                 player.PlayerActions.RemoveAt(player.PlayerActions.Count-1);
-                player.ActionCount += 2;
-                player.Mana += 2;
+                player.ActionCount += MagicShield.actionsCost;
+                player.Mana += MagicShield.manacost;
             }
             else
             if (player.PlayerActions.Last<int>() == 9)
             {
                 flag = false;
                 player.PlayerActions.RemoveAt(player.PlayerActions.Count-1);
-                player.ActionCount += 2;
-                player.Mana += 2;
+                player.ActionCount += DirectionShot.actionsCost;
+                player.Mana += DirectionShot.manacost;
             }
             else
             if (player.PlayerActions.Last<int>() == 10)
             {
                 flag = false;
                 player.PlayerActions.RemoveAt(player.PlayerActions.Count-1);
-                player.ActionCount += 2;
-                player.Mana += 1;
+                player.ActionCount += Reload.actionsCost;
+                player.Mana += Reload.manacost;
             }
         }
     }
 
+    public void OnUpdate()
+    {
+        Debug.Log(".Now is:" + UsedShield.ToString());
+    }
 }

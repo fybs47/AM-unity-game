@@ -700,10 +700,13 @@ MonoBehaviour:
   FourthPosBtn: {fileID: 962632592}
   FifthPosBtn: {fileID: 1731376498}
   SixthPosBtn: {fileID: 510431075}
+  Movement: {fileID: 0}
   MagicShield: {fileID: 0}
+  DirectionShot: {fileID: 0}
+  Reload: {fileID: 0}
+  MagicShieldBtn: {fileID: 0}
   Player1: {fileID: 559946998}
   Player2: {fileID: 1813541866}
-  PlayerTurn: 0
 --- !u!224 &299479065 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
@@ -1574,10 +1577,13 @@ MonoBehaviour:
   FourthPosBtn: {fileID: 962632592}
   FifthPosBtn: {fileID: 1731376498}
   SixthPosBtn: {fileID: 510431075}
+  Movement: {fileID: 0}
   MagicShield: {fileID: 0}
+  DirectionShot: {fileID: 0}
+  Reload: {fileID: 0}
+  MagicShieldBtn: {fileID: 0}
   Player1: {fileID: 559946998}
   Player2: {fileID: 1813541866}
-  PlayerTurn: 0
 --- !u!1 &511097731
 GameObject:
   m_ObjectHideFlags: 0
@@ -1866,10 +1872,13 @@ MonoBehaviour:
   FourthPosBtn: {fileID: 962632592}
   FifthPosBtn: {fileID: 1731376498}
   SixthPosBtn: {fileID: 510431075}
+  Movement: {fileID: 0}
   MagicShield: {fileID: 0}
+  DirectionShot: {fileID: 0}
+  Reload: {fileID: 0}
+  MagicShieldBtn: {fileID: 0}
   Player1: {fileID: 559946998}
   Player2: {fileID: 1813541866}
-  PlayerTurn: 0
 --- !u!1 &559946996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,6 +1933,7 @@ MonoBehaviour:
   Hp: 10
   Position: 2
   ActionCount: 5
+  Protected: 0
   PlayerActions: 
 --- !u!114 &559946999
 MonoBehaviour:
@@ -1976,6 +1986,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 5bc511a4d55eca84c858b9850e1f88ed, type: 2}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Reload
+      value: 
+      objectReference: {fileID: 11400000, guid: 187b16303f2bd6e41963091644be6f67, type: 2}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: Player1
       value: 
       objectReference: {fileID: 559946998}
@@ -1984,6 +1998,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1813541866}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Movement
+      value: 
+      objectReference: {fileID: 11400000, guid: 5bc511a4d55eca84c858b9850e1f88ed, type: 2}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: FifthPosBtn
       value: 
       objectReference: {fileID: 1731376498}
@@ -1991,6 +2009,10 @@ PrefabInstance:
       propertyPath: FirstPosBtn
       value: 
       objectReference: {fileID: 260935508}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: MagicShield
+      value: 
+      objectReference: {fileID: 11400000, guid: 542615b36020e204b8da16f3b22cd2b7, type: 2}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: SixthPosBtn
       value: 
@@ -2007,6 +2029,10 @@ PrefabInstance:
       propertyPath: SecondPosBtn
       value: 
       objectReference: {fileID: 552559983}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: DirectionShot
+      value: 
+      objectReference: {fileID: 11400000, guid: 07ee92c2c65a4c3438da71d22d15379e, type: 2}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: DirectionSelectionWin
       value: 
@@ -2126,6 +2152,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 187b16303f2bd6e41963091644be6f67, type: 2}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Reload
+      value: 
+      objectReference: {fileID: 11400000, guid: 187b16303f2bd6e41963091644be6f67, type: 2}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: Player1
       value: 
       objectReference: {fileID: 559946998}
@@ -2134,6 +2164,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1813541866}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Movement
+      value: 
+      objectReference: {fileID: 11400000, guid: 5bc511a4d55eca84c858b9850e1f88ed, type: 2}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: FifthPosBtn
       value: 
       objectReference: {fileID: 1731376498}
@@ -2141,6 +2175,10 @@ PrefabInstance:
       propertyPath: FirstPosBtn
       value: 
       objectReference: {fileID: 260935508}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: MagicShield
+      value: 
+      objectReference: {fileID: 11400000, guid: 542615b36020e204b8da16f3b22cd2b7, type: 2}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: SixthPosBtn
       value: 
@@ -2157,6 +2195,10 @@ PrefabInstance:
       propertyPath: SecondPosBtn
       value: 
       objectReference: {fileID: 552559983}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: DirectionShot
+      value: 
+      objectReference: {fileID: 11400000, guid: 07ee92c2c65a4c3438da71d22d15379e, type: 2}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: DirectionSelectionWin
       value: 
@@ -2680,10 +2722,13 @@ MonoBehaviour:
   FourthPosBtn: {fileID: 962632592}
   FifthPosBtn: {fileID: 1731376498}
   SixthPosBtn: {fileID: 510431075}
+  Movement: {fileID: 0}
   MagicShield: {fileID: 0}
+  DirectionShot: {fileID: 0}
+  Reload: {fileID: 0}
+  MagicShieldBtn: {fileID: 0}
   Player1: {fileID: 559946998}
   Player2: {fileID: 1813541866}
-  PlayerTurn: 0
 --- !u!1 &962632590
 GameObject:
   m_ObjectHideFlags: 0
@@ -2838,10 +2883,13 @@ MonoBehaviour:
   FourthPosBtn: {fileID: 962632592}
   FifthPosBtn: {fileID: 1731376498}
   SixthPosBtn: {fileID: 510431075}
+  Movement: {fileID: 0}
   MagicShield: {fileID: 0}
+  DirectionShot: {fileID: 0}
+  Reload: {fileID: 0}
+  MagicShieldBtn: {fileID: 0}
   Player1: {fileID: 559946998}
   Player2: {fileID: 1813541866}
-  PlayerTurn: 0
 --- !u!1 &1051005114
 GameObject:
   m_ObjectHideFlags: 0
@@ -3253,6 +3301,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 381251347}
     m_Modifications:
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Reload
+      value: 
+      objectReference: {fileID: 11400000, guid: 187b16303f2bd6e41963091644be6f67, type: 2}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 559946998}
@@ -3265,6 +3317,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1813541866}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Movement
+      value: 
+      objectReference: {fileID: 11400000, guid: 5bc511a4d55eca84c858b9850e1f88ed, type: 2}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: FifthPosBtn
       value: 
       objectReference: {fileID: 1731376498}
@@ -3272,6 +3328,10 @@ PrefabInstance:
       propertyPath: FirstPosBtn
       value: 
       objectReference: {fileID: 260935508}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: MagicShield
+      value: 
+      objectReference: {fileID: 11400000, guid: 542615b36020e204b8da16f3b22cd2b7, type: 2}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: SixthPosBtn
       value: 
@@ -3288,6 +3348,10 @@ PrefabInstance:
       propertyPath: SecondPosBtn
       value: 
       objectReference: {fileID: 552559983}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: DirectionShot
+      value: 
+      objectReference: {fileID: 11400000, guid: 07ee92c2c65a4c3438da71d22d15379e, type: 2}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: DirectionSelectionWin
       value: 
@@ -3675,6 +3739,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 542615b36020e204b8da16f3b22cd2b7, type: 2}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Reload
+      value: 
+      objectReference: {fileID: 11400000, guid: 187b16303f2bd6e41963091644be6f67, type: 2}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: Player1
       value: 
       objectReference: {fileID: 559946998}
@@ -3682,6 +3750,10 @@ PrefabInstance:
       propertyPath: Player2
       value: 
       objectReference: {fileID: 1813541866}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Movement
+      value: 
+      objectReference: {fileID: 11400000, guid: 5bc511a4d55eca84c858b9850e1f88ed, type: 2}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: FifthPosBtn
       value: 
@@ -3693,7 +3765,7 @@ PrefabInstance:
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: MagicShield
       value: 
-      objectReference: {fileID: 1395327672}
+      objectReference: {fileID: 11400000, guid: 542615b36020e204b8da16f3b22cd2b7, type: 2}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: SixthPosBtn
       value: 
@@ -3711,12 +3783,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 552559983}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: DirectionShot
+      value: 
+      objectReference: {fileID: 11400000, guid: 07ee92c2c65a4c3438da71d22d15379e, type: 2}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: DirectionSelectionWin
       value: 
       objectReference: {fileID: 108914680}
     - target: {fileID: 467187100817751135, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: m_Name
-      value: Magic Shield
+      value: MagicShieldBtn
       objectReference: {fileID: 0}
     - target: {fileID: 2608598972267596243, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: card
@@ -3816,17 +3892,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7695994579267519114, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
   m_PrefabInstance: {fileID: 1380826916}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1395327672 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7310019986981433660, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
-  m_PrefabInstance: {fileID: 1380826916}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1455692901
 GameObject:
   m_ObjectHideFlags: 0
@@ -3912,8 +3977,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1455692906}
-        m_TargetAssemblyTypeName: SpellChoosing, Assembly-CSharp
-        m_MethodName: TurnButton
+        m_TargetAssemblyTypeName: TurnController, Assembly-CSharp
+        m_MethodName: EndTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3970,21 +4035,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1455692901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6488973896ffe6e4cb23f2ff9f0c610b, type: 3}
+  m_Script: {fileID: 11500000, guid: 375ab817ba9a81d48a983aa64e7779da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 0}
-  DirectionSelectionWin: {fileID: 108914680}
-  FirstPosBtn: {fileID: 260935508}
-  SecondPosBtn: {fileID: 552559983}
-  ThirdPosBtn: {fileID: 919660863}
-  FourthPosBtn: {fileID: 962632592}
-  FifthPosBtn: {fileID: 1731376498}
-  SixthPosBtn: {fileID: 510431075}
-  MagicShield: {fileID: 0}
+  Movement: {fileID: 11400000, guid: 5bc511a4d55eca84c858b9850e1f88ed, type: 2}
+  MagicShield: {fileID: 11400000, guid: 542615b36020e204b8da16f3b22cd2b7, type: 2}
+  DirectionShot: {fileID: 11400000, guid: 07ee92c2c65a4c3438da71d22d15379e, type: 2}
+  Reload: {fileID: 11400000, guid: 187b16303f2bd6e41963091644be6f67, type: 2}
+  MagicShieldBtn: {fileID: 0}
   Player1: {fileID: 559946998}
   Player2: {fileID: 1813541866}
   PlayerTurn: 0
+  playerMovements: 
+  playerDefences: 
+  playerAtacks: 
 --- !u!1 &1613286261
 GameObject:
   m_ObjectHideFlags: 0
@@ -4402,10 +4466,13 @@ MonoBehaviour:
   FourthPosBtn: {fileID: 962632592}
   FifthPosBtn: {fileID: 1731376498}
   SixthPosBtn: {fileID: 510431075}
+  Movement: {fileID: 0}
   MagicShield: {fileID: 0}
+  DirectionShot: {fileID: 0}
+  Reload: {fileID: 0}
+  MagicShieldBtn: {fileID: 0}
   Player1: {fileID: 559946998}
   Player2: {fileID: 1813541866}
-  PlayerTurn: 0
 --- !u!1 &1801041578
 GameObject:
   m_ObjectHideFlags: 0
@@ -4593,6 +4660,7 @@ MonoBehaviour:
   Hp: 10
   Position: 5
   ActionCount: 5
+  Protected: 0
   PlayerActions: 
 --- !u!114 &1813541867
 MonoBehaviour:
@@ -5031,6 +5099,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 57d35ed2b01f16b499a4bbed9eabe5a0, type: 2}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Reload
+      value: 
+      objectReference: {fileID: 11400000, guid: 187b16303f2bd6e41963091644be6f67, type: 2}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: Player1
       value: 
       objectReference: {fileID: 559946998}
@@ -5038,6 +5110,10 @@ PrefabInstance:
       propertyPath: Player2
       value: 
       objectReference: {fileID: 1813541866}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: Movement
+      value: 
+      objectReference: {fileID: 11400000, guid: 5bc511a4d55eca84c858b9850e1f88ed, type: 2}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: FifthPosBtn
       value: 
@@ -5049,7 +5125,7 @@ PrefabInstance:
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: MagicShield
       value: 
-      objectReference: {fileID: 1395327672}
+      objectReference: {fileID: 11400000, guid: 542615b36020e204b8da16f3b22cd2b7, type: 2}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: SixthPosBtn
       value: 
@@ -5066,6 +5142,10 @@ PrefabInstance:
       propertyPath: SecondPosBtn
       value: 
       objectReference: {fileID: 552559983}
+    - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      propertyPath: DirectionShot
+      value: 
+      objectReference: {fileID: 11400000, guid: 07ee92c2c65a4c3438da71d22d15379e, type: 2}
     - target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
       propertyPath: DirectionSelectionWin
       value: 

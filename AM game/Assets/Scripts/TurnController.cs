@@ -6,11 +6,17 @@ using UnityEngine.UI;
 public class TurnController : MonoBehaviour
 {
     public static TurnController instance;
-    public Button MagicShield;
+    
+    public SpellCard Movement;
+    public SpellCard MagicShield;
+    public SpellCard DirectionShot;
+    public SpellCard Reload;
+    public Button MagicShieldBtn;
     public Player Player1;
     public Player Player2;
     public int PlayerTurn;
     Player player;
+    public static bool UsedShield;
 
     List<int> player1Movements;
     List<int> player2Movements;
@@ -53,7 +59,8 @@ public class TurnController : MonoBehaviour
     //10 - is reload;
     
     public void EndTurn()
-    {
+    {   
+        UsedShield = false;
         PlayerDefenition();
         while(player.PlayerActions.Count > 0)
         {
@@ -63,16 +70,15 @@ public class TurnController : MonoBehaviour
                 player.PlayerActions.RemoveAt(0);
                 playerMovements.Add(player.PlayerActions[0]);
                 player.PlayerActions.RemoveAt(0);
-                player.ActionCount += 3;
+                player.ActionCount += Movement.actionsCost;
             }
             else
             if (player.PlayerActions[0] == 8)
             {
-                MagicShield.interactable = true;
+                MagicShieldBtn.interactable = true;
                 playerDefences.Add(player.PlayerActions[0]);
                 player.PlayerActions.RemoveAt(0);
-                player.ActionCount += 2;
-                player.Mana += 2;
+                player.ActionCount += MagicShield.actionsCost;
             }
             else
             if (player.PlayerActions[0] == 9)
@@ -81,8 +87,7 @@ public class TurnController : MonoBehaviour
                 player.PlayerActions.RemoveAt(0);
                 playerAtacks.Add(player.PlayerActions[0]);
                 player.PlayerActions.RemoveAt(0);
-                player.ActionCount += 2;
-                player.Mana += 2;
+                player.ActionCount += DirectionShot.actionsCost;
             }
             else
             if (player.PlayerActions[0] == 10)
@@ -91,8 +96,7 @@ public class TurnController : MonoBehaviour
                 player.PlayerActions.RemoveAt(0);
                 playerAtacks.Add(player.PlayerActions[0]);
                 player.PlayerActions.RemoveAt(0);
-                player.ActionCount += 2;
-                player.Mana += 1;
+                player.ActionCount += Reload.actionsCost;
             }
         }
         if (PlayerTurn == 0)
@@ -101,6 +105,112 @@ public class TurnController : MonoBehaviour
         }
         else
         {
+            for (int i = 0;player1Movements.Count > 1;)
+            {
+                if (player1Movements[i] == 7)
+                {
+                    Player1.Position = player1Movements[i+1];
+                    player1Movements.RemoveAt(i+1);
+                    player1Movements.RemoveAt(i);
+                }
+            }
+            for (int i = 0;player2Movements.Count > 1;)
+            {
+                if (player2Movements[i] == 7)
+                {
+                    Player2.Position = player2Movements[i+1];
+                    player2Movements.RemoveAt(i+1);
+                    player2Movements.RemoveAt(i);
+                }
+            }
+
+            for (int i = 0;player1Defences.Count > 0;)
+            {
+                if (player1Defences[i] == 8)
+                {
+                    Player1.Protected = true;
+                    player1Defences.RemoveAt(i);
+                }
+            }
+            for (int i = 0;player2Defences.Count > 0;)
+            {
+                if (player2Defences[i] == 8)
+                {
+                    Player2.Protected = true;
+                    player2Defences.RemoveAt(i);
+                }
+            }
+
+            for (int i = 0;player1Atacks.Count > 1;)
+            {
+                if (player1Atacks[i] == 9)
+                {
+                    if (Player2.Position == player1Atacks[i+1])
+                    {
+                        if (Player2.Protected == false)
+                        {
+                            Player2.Hp -= DirectionShot.damage;
+                        }
+                        else
+                        {
+                            Player2.Protected = false;
+                        }    
+                    }
+                    player1Atacks.RemoveAt(i+1);
+                    player1Atacks.RemoveAt(i);
+                }
+                else
+                if (player1Atacks[i] == 10)
+                {
+                    if(Player2.Position == player1Atacks[i+1])
+                    {
+                        if (Player2.Protected == false)
+                        {
+                            Player2.Hp -= Reload.damage;
+                        }
+                        else
+                        {
+                            Player2.Protected = false;
+                        }      
+                    }
+                    player1Atacks.RemoveAt(i+1);
+                    player1Atacks.RemoveAt(i);
+                } 
+            }
+             for (int i = 0;player2Atacks.Count > 1;)
+            {
+               if (player2Atacks[i] == 9)
+                {
+                    if(Player1.Position == player2Atacks[i+1])
+                    {
+                        if (Player1.Protected == false)
+                        {
+                            Player1.Hp -= DirectionShot.damage;
+                        }
+                        else
+                        {
+                            Player1.Protected = false;
+                        }    
+                           
+                    }
+                    player2Atacks.RemoveAt(i+1);
+                    player2Atacks.RemoveAt(i);
+                }
+                else
+                if (player2Atacks[i] == 10)
+                {
+                    if (Player1.Protected == false)
+                        {
+                            Player1.Hp -= Reload.damage;
+                        }
+                        else
+                        {
+                            Player1.Protected = false;
+                        }    
+                    player2Atacks.RemoveAt(i+1);
+                    player2Atacks.RemoveAt(i);
+                } 
+            }
             PlayerTurn --;
         }
         instance = this;

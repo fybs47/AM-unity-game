@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public int Hp;
     public int Position;
     public int ActionCount;
+    public bool Protected;
     public List<int> PlayerActions;
 
     //1-6 -- is position;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
        Hp = hp;
        Position = position;
        ActionCount = actionCount;
+       Protected = false;
        PlayerActions = new List<int>();
     }
 }
