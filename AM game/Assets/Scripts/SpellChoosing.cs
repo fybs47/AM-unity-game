@@ -19,12 +19,11 @@ public class SpellChoosing : MonoBehaviour
     public Button MagicShield;
     public Player Player1;
     public Player Player2;
-    public int PlayerTurn;
     Player player;
     
     void PlayerDefenition()
     {
-        if (PlayerTurn == 0)
+        if (TurnController.instance.PlayerTurn == 0)
         {
             player = Player1;
         }
@@ -178,15 +177,4 @@ public class SpellChoosing : MonoBehaviour
         }
     }
 
-    public void TurnButton()
-    {
-        PlayerDefenition();
-        int v = 0;
-        while(player.PlayerActions.Count > 0 && v < 10)
-        {
-        Debug.Log(".Последний элемент:" + player.PlayerActions[player.PlayerActions.Count-1]);
-        player.PlayerActions.RemoveAt(player.PlayerActions.Count-1);
-        v++;
-        }
-    }
 }
