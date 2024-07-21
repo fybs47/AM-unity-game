@@ -3839,6 +3839,7 @@ GameObject:
   - component: {fileID: 1455692905}
   - component: {fileID: 1455692904}
   - component: {fileID: 1455692903}
+  - component: {fileID: 1455692906}
   m_Layer: 5
   m_Name: End Turn Btn
   m_TagString: Untagged
@@ -3910,9 +3911,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 188816973110877129, guid: 6bec0ca5d3875eb429f99f3da0be7b3a, type: 3}
+      - m_Target: {fileID: 1455692906}
         m_TargetAssemblyTypeName: SpellChoosing, Assembly-CSharp
-        m_MethodName: OnClick
+        m_MethodName: TurnButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3960,6 +3961,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455692901}
   m_CullTransparentMesh: 1
+--- !u!114 &1455692906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455692901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6488973896ffe6e4cb23f2ff9f0c610b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 0}
+  DirectionSelectionWin: {fileID: 108914680}
+  FirstPosBtn: {fileID: 260935508}
+  SecondPosBtn: {fileID: 552559983}
+  ThirdPosBtn: {fileID: 919660863}
+  FourthPosBtn: {fileID: 962632592}
+  FifthPosBtn: {fileID: 1731376498}
+  SixthPosBtn: {fileID: 510431075}
+  MagicShield: {fileID: 0}
+  Player1: {fileID: 559946998}
+  Player2: {fileID: 1813541866}
+  PlayerTurn: 0
 --- !u!1 &1613286261
 GameObject:
   m_ObjectHideFlags: 0

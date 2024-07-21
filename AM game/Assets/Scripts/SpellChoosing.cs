@@ -142,12 +142,12 @@ public class SpellChoosing : MonoBehaviour
             if (player.PlayerActions.Last<int>() <=6)
             {
                 flag = false;
-                player.PlayerActions.Remove(player.PlayerActions.Last<int>());
+                player.PlayerActions.RemoveAt(player.PlayerActions.Count-1);
             }
             if (player.PlayerActions.Last<int>() == 7)
             {
                 flag = false;
-                player.PlayerActions.Remove(player.PlayerActions.Last<int>());
+                player.PlayerActions.RemoveAt(player.PlayerActions.Count-1);
                 player.ActionCount += 3;
             }
             else
@@ -155,7 +155,7 @@ public class SpellChoosing : MonoBehaviour
             {
                 flag = false;
                 MagicShield.interactable = true;
-                player.PlayerActions.Remove(player.PlayerActions.Last<int>());
+                player.PlayerActions.RemoveAt(player.PlayerActions.Count-1);
                 player.ActionCount += 2;
                 player.Mana += 2;
             }
@@ -163,7 +163,7 @@ public class SpellChoosing : MonoBehaviour
             if (player.PlayerActions.Last<int>() == 9)
             {
                 flag = false;
-                player.PlayerActions.Remove(player.PlayerActions.Last<int>());
+                player.PlayerActions.RemoveAt(player.PlayerActions.Count-1);
                 player.ActionCount += 2;
                 player.Mana += 2;
             }
@@ -171,10 +171,22 @@ public class SpellChoosing : MonoBehaviour
             if (player.PlayerActions.Last<int>() == 10)
             {
                 flag = false;
-                player.PlayerActions.Remove(player.PlayerActions.Last<int>());
+                player.PlayerActions.RemoveAt(player.PlayerActions.Count-1);
                 player.ActionCount += 2;
                 player.Mana += 1;
             }
+        }
+    }
+
+    public void TurnButton()
+    {
+        PlayerDefenition();
+        int v = 0;
+        while(player.PlayerActions.Count > 0 && v < 10)
+        {
+        Debug.Log(".Последний элемент:" + player.PlayerActions[player.PlayerActions.Count-1]);
+        player.PlayerActions.RemoveAt(player.PlayerActions.Count-1);
+        v++;
         }
     }
 }
