@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,10 @@ public class TurnController : MonoBehaviour
     public SpellCard DirectionShot;
     public SpellCard Reload;
     public Button MagicShieldBtn;
+    public GameObject Result;
+    public TextMeshProUGUI ResultTxt;
+    public GameObject TieSprite;
+
     public Player Player1;
     public Player Player2;
     public int PlayerTurn;
@@ -212,6 +217,30 @@ public class TurnController : MonoBehaviour
                 } 
             }
             PlayerTurn --;
+        }
+        Player1.UpdateHP();
+        Player2.UpdateHP();
+        Player1.UpdateMana();
+        Player2.UpdateMana();
+
+        if(Player1.Hp <= 0 && Player2.Hp <= 0)
+        {
+            Result.SetActive(true);
+            ResultTxt.text = "Ничья!";
+            TieSprite.SetActive(true);
+        }
+        else
+        {
+            if(Player1.Hp <= 0)
+            {
+                Result.SetActive(true);
+                ResultTxt.text = "Второй игрок победил!";
+            }
+            else if(Player2.Hp <= 0)
+            {
+                Result.SetActive(true);
+                ResultTxt.text = "Первый игрок победил!";
+            }
         }
         instance = this;
     }

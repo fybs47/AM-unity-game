@@ -248,9 +248,4 @@ public class SpellChoosing : MonoBehaviour
             }
         }
     }
-
-    public void OnUpdate()
-    {
-        Debug.Log(".Now is:" + UsedShield.ToString());
-    }
 }

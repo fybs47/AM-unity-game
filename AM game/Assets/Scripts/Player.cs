@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class Player : MonoBehaviour
     public int ActionCount;
     public bool Protected;
     public List<int> PlayerActions;
+    public TextMeshProUGUI PlayerHPtxt;
+    public TextMeshProUGUI PlayerManatxt;
 
     //1-6 -- is position;
     //7 - is movement;
@@ -25,5 +29,15 @@ public class Player : MonoBehaviour
        ActionCount = actionCount;
        Protected = false;
        PlayerActions = new List<int>();
+    }
+
+    public void UpdateHP()
+    {
+        PlayerHPtxt.text = Hp.ToString();
+    }
+
+        public void UpdateMana()
+    {
+        PlayerManatxt.text = Mana.ToString();
     }
 }
