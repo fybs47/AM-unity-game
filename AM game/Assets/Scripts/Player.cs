@@ -44,20 +44,43 @@ public class Player : MonoBehaviour
     public void AddAction(int action, GameObject actionPrefab, string spritePath)
     {
         PlayerActions.Add(action);
-        Vector3 position = new Vector3(0,0,0);
-        GameObject obj = Instantiate(actionPrefab,position,Quaternion.identity);
-        obj.transform.SetParent(Field.transform);
+    
+        GameObject obj = Instantiate(actionPrefab, Vector3.zero, Quaternion.identity);
+        obj.transform.SetParent(Field.transform); // Устанавливаем родителя (в данном случае текущий объект)
         obj.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-        obj.GetComponent<ActionDisplay>().SetSprite(spritePath);
+        // Назначаем спрайт дочернему объекту с именем "ActionImg"
+        Transform actionImg = obj.transform.Find("ActionImg");
+        if (actionImg != null)
+        {
+            Image image = actionImg.GetComponent<Image>();
+            if (image != null)
+            {
+                // Загружаем спрайт из ресурсов
+                Sprite sprite = Resources.Load<Sprite>(spritePath);
+                if (sprite != null)
+                {
+                    image.sprite = sprite;
+                }
+                else
+                {
+                    Debug.LogError("Sprite not found at path: " + spritePath);
+                }
+            }
+            else
+            {
+                Debug.LogError("Image component not found on ActionImg object.");
+            }
+        }
+        else
+        {
+            Debug.LogError("ActionImg object not found as a child of the instantiated prefab.");
+        }
+    
+
     }
     public void RemoveAction(int number)
     {
         PlayerActions.RemoveAt(number);
-        int ind = Field.transform.childCount - 1;
-        if (number == 0)
-        {
-            ind = 0;
-        }
-        Destroy(Field.transform.GetChild(ind).gameObject);
+        Destroy(Field.transform.GetChild(number).gameObject);
     }
 }

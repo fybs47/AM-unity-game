@@ -26,7 +26,7 @@ public class CardDisplay : MonoBehaviour
         ManaCostTxt.text = Card.manacost.ToString();
         ActionsCostTxt.text = Card.actionsCost.ToString();
         SpriteImage.sprite = Card.sprite;
-
+        
         if(Card.manacost <= 0)
         {
             ManaCostTxt.gameObject.SetActive(false);

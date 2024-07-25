@@ -79,7 +79,6 @@ public class SpellChoosing : MonoBehaviour
         MovementBtn.interactable = true;
         if (UsedShield == false)
         {
-            Debug.Log("used sdield is: " + UsedShield.ToString());
             MagicShieldBtn.interactable = true; 
         }
         DirectionShotBtn.interactable = true;
@@ -141,7 +140,6 @@ public class SpellChoosing : MonoBehaviour
             player.ActionCount -= MagicShield.actionsCost;
             player.Mana -= MagicShield.manacost;
             UsedShield = true;
-            Debug.Log("in Spell: " + UsedShield.ToString());
             MagicShieldBtn.interactable = false;
         }
         else
@@ -186,7 +184,6 @@ public class SpellChoosing : MonoBehaviour
             FifthPosBtn.interactable = true;
             SixthPosBtn.interactable = true;
         }
-        Debug.Log("in the end of this method: " + UsedShield.ToString());
     }
 
     public void Cancel()

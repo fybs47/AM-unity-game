@@ -16,6 +16,8 @@ public class TurnController : MonoBehaviour
     public GameObject Result;
     public TextMeshProUGUI ResultTxt;
     public GameObject TieSprite;
+    public GameObject Field;
+    public TextMeshProUGUI TurnTxt;
 
     public Player Player1;
     public Player Player2;
@@ -35,9 +37,17 @@ public class TurnController : MonoBehaviour
     List<int> player2Atacks;
     public List<int> playerAtacks;
 
+    public void ClearField()
+    {
+        for (int i = Field.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(Field.transform.GetChild(i).gameObject);
+        }
+    }
     void Start()
     {
         instance = this;
+        TurnTxt.text = "Ход " + (PlayerTurn + 1).ToString() + "-го игрока" ;
     }
     void PlayerDefenition()
     {
@@ -65,6 +75,7 @@ public class TurnController : MonoBehaviour
     
     public void EndTurn()
     {   
+        ClearField();
         UsedShield = false;
         PlayerDefenition();
         while(player.PlayerActions.Count > 0)
@@ -72,9 +83,9 @@ public class TurnController : MonoBehaviour
             if (player.PlayerActions[0] == 7)
             {
                 playerMovements.Add(player.PlayerActions[0]);
-                player.RemoveAction(0);
+                player.PlayerActions.RemoveAt(0);
                 playerMovements.Add(player.PlayerActions[0]);
-                player.RemoveAction(0);
+                player.PlayerActions.RemoveAt(0);
                 player.ActionCount += Movement.actionsCost;
             }
             else
@@ -82,31 +93,32 @@ public class TurnController : MonoBehaviour
             {
                 MagicShieldBtn.interactable = true;
                 playerDefences.Add(player.PlayerActions[0]);
-                player.RemoveAction(0);
+                player.PlayerActions.RemoveAt(0);
                 player.ActionCount += MagicShield.actionsCost;
             }
             else
             if (player.PlayerActions[0] == 9)
             {
                 playerAtacks.Add(player.PlayerActions[0]);
-                player.RemoveAction(0);
+                player.PlayerActions.RemoveAt(0);
                 playerAtacks.Add(player.PlayerActions[0]);
-                player.RemoveAction(0);
+                player.PlayerActions.RemoveAt(0);
                 player.ActionCount += DirectionShot.actionsCost;
             }
             else
             if (player.PlayerActions[0] == 10)
             {
                 playerAtacks.Add(player.PlayerActions[0]);
-                player.RemoveAction(0);
+                player.PlayerActions.RemoveAt(0);
                 playerAtacks.Add(player.PlayerActions[0]);
-                player.RemoveAction(0);
+                player.PlayerActions.RemoveAt(0);
                 player.ActionCount += Reload.actionsCost;
             }
         }
         if (PlayerTurn == 0)
         {
             PlayerTurn ++;
+            TurnTxt.text = "Ход " + (PlayerTurn + 1).ToString() + "-го игрока" ;
         }
         else
         {
@@ -217,6 +229,7 @@ public class TurnController : MonoBehaviour
                 } 
             }
             PlayerTurn --;
+            TurnTxt.text = "Ход " + (PlayerTurn + 1).ToString() + "-го игрока" ;
         }
         Player1.UpdateHP();
         Player2.UpdateHP();

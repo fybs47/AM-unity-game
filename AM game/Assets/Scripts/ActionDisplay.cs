@@ -18,10 +18,14 @@ public class ActionDisplay : MonoBehaviour
  
 
     void Start()
-    {
+    {        
+        
         ManaCostTxt.text = Card.manacost.ToString();
         ActionsCostTxt.text = Card.actionsCost.ToString();
-        SetSprite("Sprites/Numbers/1-Pos");
+        if (SpriteImage.sprite == null)
+        {
+            SetSprite("Sprites/Numbers/1-Pos");
+        }
         if(Card.manacost <= 0)
         {
             ManaCostTxt.gameObject.SetActive(false);
