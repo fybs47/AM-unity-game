@@ -1,19 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CardDisplay : MonoBehaviour
+public class ActionDisplay : MonoBehaviour
 {
- public SpellCard Card;
 
- public Text NameText;
- public Text DescriptionText;
+ public SpellCard Card;
 
  public TextMeshProUGUI ManaCostTxt;
  public TextMeshProUGUI ActionsCostTxt;
-
  
  public Image SpriteImage;
 
@@ -21,12 +19,9 @@ public class CardDisplay : MonoBehaviour
 
     void Start()
     {
-        NameText.text = Card.name;
-        DescriptionText.text = Card.description;
         ManaCostTxt.text = Card.manacost.ToString();
         ActionsCostTxt.text = Card.actionsCost.ToString();
-        SpriteImage.sprite = Card.sprite;
-
+        SetSprite("Sprites/Numbers/1-Pos");
         if(Card.manacost <= 0)
         {
             ManaCostTxt.gameObject.SetActive(false);
@@ -36,4 +31,10 @@ public class CardDisplay : MonoBehaviour
             ActionsCostTxt.gameObject.SetActive(false);
         }
     }
+
+    public void SetSprite(string spritePath)
+    {
+        SpriteImage.sprite = Resources.Load<Sprite>(spritePath);
+    }
+
 }

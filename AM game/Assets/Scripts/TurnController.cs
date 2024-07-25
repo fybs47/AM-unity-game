@@ -72,9 +72,9 @@ public class TurnController : MonoBehaviour
             if (player.PlayerActions[0] == 7)
             {
                 playerMovements.Add(player.PlayerActions[0]);
-                player.PlayerActions.RemoveAt(0);
+                player.RemoveAction(0);
                 playerMovements.Add(player.PlayerActions[0]);
-                player.PlayerActions.RemoveAt(0);
+                player.RemoveAction(0);
                 player.ActionCount += Movement.actionsCost;
             }
             else
@@ -82,25 +82,25 @@ public class TurnController : MonoBehaviour
             {
                 MagicShieldBtn.interactable = true;
                 playerDefences.Add(player.PlayerActions[0]);
-                player.PlayerActions.RemoveAt(0);
+                player.RemoveAction(0);
                 player.ActionCount += MagicShield.actionsCost;
             }
             else
             if (player.PlayerActions[0] == 9)
             {
                 playerAtacks.Add(player.PlayerActions[0]);
-                player.PlayerActions.RemoveAt(0);
+                player.RemoveAction(0);
                 playerAtacks.Add(player.PlayerActions[0]);
-                player.PlayerActions.RemoveAt(0);
+                player.RemoveAction(0);
                 player.ActionCount += DirectionShot.actionsCost;
             }
             else
             if (player.PlayerActions[0] == 10)
             {
                 playerAtacks.Add(player.PlayerActions[0]);
-                player.PlayerActions.RemoveAt(0);
+                player.RemoveAction(0);
                 playerAtacks.Add(player.PlayerActions[0]);
-                player.PlayerActions.RemoveAt(0);
+                player.RemoveAction(0);
                 player.ActionCount += Reload.actionsCost;
             }
         }

@@ -14,7 +14,9 @@ public class SpellChoosing : MonoBehaviour
     public Button ThirdPosBtn;
     public Button FourthPosBtn;
     public Button FifthPosBtn;
-    public Button SixthPosBtn; 
+    public Button SixthPosBtn;
+
+    public GameObject ActionPrefab;
 
     public SpellCard Movement;
     public SpellCard MagicShield;
@@ -51,27 +53,27 @@ public class SpellChoosing : MonoBehaviour
         PlayerDefenition();
         if (this.gameObject == FirstPosBtn.gameObject)
         {
-            player.PlayerActions.Add(1);
+            player.AddAction(1,ActionPrefab,"Sprites/Numbers/1-Pos");
         }
         else if (this.gameObject == SecondPosBtn.gameObject)
         {
-            player.PlayerActions.Add(2);
+            player.AddAction(2,ActionPrefab,"Sprites/Numbers/2-Pos");
         }
         else if (this.gameObject == ThirdPosBtn.gameObject)
         {
-            player.PlayerActions.Add(3);
+            player.AddAction(3,ActionPrefab,"Sprites/Numbers/3-Pos");
         }
         else if (this.gameObject == FourthPosBtn.gameObject)
         {
-            player.PlayerActions.Add(4);
+            player.AddAction(4,ActionPrefab,"Sprites/Numbers/4-Pos");
         }
         else if (this.gameObject == FifthPosBtn.gameObject)
         {
-            player.PlayerActions.Add(5);
+            player.AddAction(5,ActionPrefab,"Sprites/Numbers/5-Pos");
         }
         else if (this.gameObject == SixthPosBtn.gameObject)
         {
-            player.PlayerActions.Add(6);
+            player.AddAction(6,ActionPrefab,"Sprites/Numbers/6-Pos");
         }
 
         MovementBtn.interactable = true;
@@ -105,7 +107,7 @@ public class SpellChoosing : MonoBehaviour
             MagicShieldBtn.interactable = false;
             DirectionShotBtn.interactable = false;
             ReloadBtn.interactable = false;
-            player.PlayerActions.Add(7);
+            player.AddAction(7,ActionPrefab,"Sprites/Movement");
             player.ActionCount -= Movement.actionsCost;
             if (TurnController.instance.PlayerTurn == 0)
             {
@@ -135,7 +137,7 @@ public class SpellChoosing : MonoBehaviour
         else
         if(this.card.spellType == SpellCard.Spells.shield && player.ActionCount >= 2 &&  player.Mana >= 2)
         {
-            player.PlayerActions.Add(8);
+            player.AddAction(8,ActionPrefab,"Sprites/Shield");
             player.ActionCount -= MagicShield.actionsCost;
             player.Mana -= MagicShield.manacost;
             UsedShield = true;
@@ -150,7 +152,7 @@ public class SpellChoosing : MonoBehaviour
             MagicShieldBtn.interactable = false;
             DirectionShotBtn.interactable = false;
             ReloadBtn.interactable = false;
-            player.PlayerActions.Add(9);
+            player.AddAction(9,ActionPrefab,"Sprites/DirectionShot");
             player.ActionCount -= DirectionShot.actionsCost;
             player.Mana -= DirectionShot.manacost;
             if (TurnController.instance.PlayerTurn == 0)
@@ -174,7 +176,7 @@ public class SpellChoosing : MonoBehaviour
             MagicShieldBtn.interactable = false;
             DirectionShotBtn.interactable = false;
             ReloadBtn.interactable = false;
-            player.PlayerActions.Add(10);
+            player.AddAction(10,ActionPrefab,"Sprites/Reload");
             player.ActionCount -= Reload.actionsCost;
             player.Mana -= Reload.manacost;
             FirstPosBtn.interactable = true;
@@ -212,12 +214,12 @@ public class SpellChoosing : MonoBehaviour
             if (player.PlayerActions.Last<int>() <=6)
             {
                 flag = false;
-                player.PlayerActions.RemoveAt(player.PlayerActions.Count-1);
+                player.RemoveAction(player.PlayerActions.Count - 1);
             }
             if (player.PlayerActions.Last<int>() == 7)
             {
                 flag = false;
-                player.PlayerActions.RemoveAt(player.PlayerActions.Count-1);
+                player.RemoveAction(player.PlayerActions.Count - 1);
                 player.ActionCount += Movement.actionsCost;
             }
             else
@@ -226,7 +228,7 @@ public class SpellChoosing : MonoBehaviour
                 flag = false;
                 MagicShieldBtn.interactable = true;
                 UsedShield = false;
-                player.PlayerActions.RemoveAt(player.PlayerActions.Count-1);
+                player.RemoveAction(player.PlayerActions.Count - 1);
                 player.ActionCount += MagicShield.actionsCost;
                 player.Mana += MagicShield.manacost;
             }
@@ -234,7 +236,7 @@ public class SpellChoosing : MonoBehaviour
             if (player.PlayerActions.Last<int>() == 9)
             {
                 flag = false;
-                player.PlayerActions.RemoveAt(player.PlayerActions.Count-1);
+                player.RemoveAction(player.PlayerActions.Count - 1);
                 player.ActionCount += DirectionShot.actionsCost;
                 player.Mana += DirectionShot.manacost;
             }
@@ -242,7 +244,7 @@ public class SpellChoosing : MonoBehaviour
             if (player.PlayerActions.Last<int>() == 10)
             {
                 flag = false;
-                player.PlayerActions.RemoveAt(player.PlayerActions.Count-1);
+                player.RemoveAction(player.PlayerActions.Count - 1);
                 player.ActionCount += Reload.actionsCost;
                 player.Mana += Reload.manacost;
             }
