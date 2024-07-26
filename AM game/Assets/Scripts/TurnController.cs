@@ -23,7 +23,6 @@ public class TurnController : MonoBehaviour
     public Player Player2;
     public int PlayerTurn;
     Player player;
-    public static bool UsedShield;
 
     List<int> player1Movements;
     List<int> player2Movements;
@@ -76,8 +75,8 @@ public class TurnController : MonoBehaviour
     public void EndTurn()
     {   
         ClearField();
-        UsedShield = false;
         PlayerDefenition();
+        player.UsedShield = false;
         while(player.PlayerActions.Count > 0)
         {
             if (player.PlayerActions[0] == 7)
@@ -87,6 +86,7 @@ public class TurnController : MonoBehaviour
                 playerMovements.Add(player.PlayerActions[0]);
                 player.PlayerActions.RemoveAt(0);
                 player.ActionCount += Movement.actionsCost;
+                
             }
             else
             if (player.PlayerActions[0] == 8)
@@ -126,6 +126,7 @@ public class TurnController : MonoBehaviour
             {
                 if (player1Movements[i] == 7)
                 {
+                    MovementDisplay(Player1, player1Movements);
                     Player1.Position = player1Movements[i+1];
                     player1Movements.RemoveAt(i+1);
                     player1Movements.RemoveAt(i);
@@ -135,6 +136,7 @@ public class TurnController : MonoBehaviour
             {
                 if (player2Movements[i] == 7)
                 {
+                    MovementDisplay(Player2, player2Movements);
                     Player2.Position = player2Movements[i+1];
                     player2Movements.RemoveAt(i+1);
                     player2Movements.RemoveAt(i);
@@ -145,6 +147,7 @@ public class TurnController : MonoBehaviour
             {
                 if (player1Defences[i] == 8)
                 {
+                    Player1.ProtectedImg.SetActive(true);
                     Player1.Protected = true;
                     player1Defences.RemoveAt(i);
                 }
@@ -153,6 +156,7 @@ public class TurnController : MonoBehaviour
             {
                 if (player2Defences[i] == 8)
                 {
+                    Player2.ProtectedImg.SetActive(true);
                     Player2.Protected = true;
                     player2Defences.RemoveAt(i);
                 }
@@ -170,7 +174,11 @@ public class TurnController : MonoBehaviour
                         }
                         else
                         {
+                            Player2.ProtectedImg.SetActive(false);
                             Player2.Protected = false;
+                            //In the future, each player will have their own spell upgrades, and it will be possible to change the parameter of mana received from the shield. For now, I'll just leave it like this, so that later it will be clear where to change.
+                            int ShieldValue = 2;
+                            Player2.Mana += ShieldValue;
                         }    
                     }
                     player1Atacks.RemoveAt(i+1);
@@ -187,7 +195,11 @@ public class TurnController : MonoBehaviour
                         }
                         else
                         {
+                            Player2.ProtectedImg.SetActive(false);
                             Player2.Protected = false;
+                            //In the future, each player will have their own spell upgrades, and it will be possible to change the parameter of mana received from the shield. For now, I'll just leave it like this, so that later it will be clear where to change.
+                            int ShieldValue = 2;
+                            Player2.Mana += ShieldValue;
                         }      
                     }
                     player1Atacks.RemoveAt(i+1);
@@ -206,7 +218,11 @@ public class TurnController : MonoBehaviour
                         }
                         else
                         {
+                            Player1.ProtectedImg.SetActive(false);
                             Player1.Protected = false;
+                            //In the future, each player will have their own spell upgrades, and it will be possible to change the parameter of mana received from the shield. For now, I'll just leave it like this, so that later it will be clear where to change.
+                            int ShieldValue = 2;
+                            Player1.Mana += ShieldValue;
                         }    
                            
                     }
@@ -222,7 +238,11 @@ public class TurnController : MonoBehaviour
                         }
                         else
                         {
+                            Player1.ProtectedImg.SetActive(false);
                             Player1.Protected = false;
+                            //In the future, each player will have their own spell upgrades, and it will be possible to change the parameter of mana received from the shield. For now, I'll just leave it like this, so that later it will be clear where to change.
+                            int ShieldValue = 2;
+                            Player1.Mana += ShieldValue;
                         }    
                     player2Atacks.RemoveAt(i+1);
                     player2Atacks.RemoveAt(i);
@@ -256,5 +276,33 @@ public class TurnController : MonoBehaviour
             }
         }
         instance = this;
+    }
+
+    public void MovementDisplay(Player player, List<int> playerMovements)
+    { 
+        if (playerMovements[1] == 1 )
+                {
+                    player.transform.localPosition =  new Vector3(-620,110,0);   
+                }
+                else if (playerMovements[1] == 2)
+                {
+                    player.transform.localPosition =  new Vector3(-620,-60,0);
+                }
+                else if (playerMovements[1] == 3)
+                {
+                    player.transform.localPosition =  new Vector3(-620,-220,0);
+                }
+                else if (playerMovements[1] == 4)
+                {
+                    player.transform.localPosition =  new Vector3(620,110,0);
+                }
+                else if (playerMovements[1] == 5)
+                {
+                    player.transform.localPosition =  new Vector3(620,-60,0);
+                }
+                else if (playerMovements[1] == 6)
+                {
+                    player.transform.localPosition =  new Vector3(620,-220,0);
+                }
     }
 }

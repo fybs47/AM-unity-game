@@ -11,9 +11,11 @@ public class Player : MonoBehaviour
     public int Position;
     public int ActionCount;
     public bool Protected;
+    public bool UsedShield;
     public List<int> PlayerActions;
     public TextMeshProUGUI PlayerHPtxt;
     public TextMeshProUGUI PlayerManatxt;
+    public GameObject ProtectedImg;
     public GameObject Field;
 
     //1-6 -- is position;
@@ -29,7 +31,13 @@ public class Player : MonoBehaviour
        Position = position;
        ActionCount = actionCount;
        Protected = false;
+       UsedShield = false;
        PlayerActions = new List<int>();
+       ProtectedImg.SetActive(false);
+    }
+    private void Start() 
+    {
+        ProtectedImg.SetActive(false);
     }
 
     public void UpdateHP()

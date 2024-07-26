@@ -28,13 +28,8 @@ public class SpellChoosing : MonoBehaviour
     public Button ReloadBtn;
     public Player Player1;
     public Player Player2;
+    public Button EndTurnBtn;
     Player player;
-    public static bool UsedShield;
-
-    void Start()
-    {
-        UsedShield = false;
-    }
 
     void PlayerDefenition()
     {
@@ -77,12 +72,13 @@ public class SpellChoosing : MonoBehaviour
         }
 
         MovementBtn.interactable = true;
-        if (UsedShield == false)
+        if (player.UsedShield == false)
         {
             MagicShieldBtn.interactable = true; 
         }
         DirectionShotBtn.interactable = true;
         ReloadBtn.interactable = true;
+        EndTurnBtn.interactable = true;
 
         FirstPosBtn.interactable = false;
         SecondPosBtn.interactable = false;
@@ -90,9 +86,7 @@ public class SpellChoosing : MonoBehaviour
         FourthPosBtn.interactable = false;
         FifthPosBtn.interactable = false;
         SixthPosBtn.interactable = false;
-
-
-
+    
         DirectionSelectionWin.SetActive(false);
      }
 
@@ -106,6 +100,7 @@ public class SpellChoosing : MonoBehaviour
             MagicShieldBtn.interactable = false;
             DirectionShotBtn.interactable = false;
             ReloadBtn.interactable = false;
+            EndTurnBtn.interactable = false;
             player.AddAction(7,ActionPrefab,"Sprites/Movement");
             player.ActionCount -= Movement.actionsCost;
             if (TurnController.instance.PlayerTurn == 0)
@@ -139,7 +134,7 @@ public class SpellChoosing : MonoBehaviour
             player.AddAction(8,ActionPrefab,"Sprites/Shield");
             player.ActionCount -= MagicShield.actionsCost;
             player.Mana -= MagicShield.manacost;
-            UsedShield = true;
+            player.UsedShield = true;
             MagicShieldBtn.interactable = false;
         }
         else
@@ -150,6 +145,7 @@ public class SpellChoosing : MonoBehaviour
             MagicShieldBtn.interactable = false;
             DirectionShotBtn.interactable = false;
             ReloadBtn.interactable = false;
+            EndTurnBtn.interactable = false;
             player.AddAction(9,ActionPrefab,"Sprites/DirectionShot");
             player.ActionCount -= DirectionShot.actionsCost;
             player.Mana -= DirectionShot.manacost;
@@ -174,6 +170,7 @@ public class SpellChoosing : MonoBehaviour
             MagicShieldBtn.interactable = false;
             DirectionShotBtn.interactable = false;
             ReloadBtn.interactable = false;
+            EndTurnBtn.interactable = false;
             player.AddAction(10,ActionPrefab,"Sprites/Reload");
             player.ActionCount -= Reload.actionsCost;
             player.Mana -= Reload.manacost;
@@ -197,12 +194,13 @@ public class SpellChoosing : MonoBehaviour
         SixthPosBtn.interactable = false;
 
         MovementBtn.interactable = true;
-        if (UsedShield == false)
+        if (player.UsedShield == false)
         {
             MagicShieldBtn.interactable = true; 
         }
         DirectionShotBtn.interactable = true;
         ReloadBtn.interactable = true;
+        EndTurnBtn.interactable = true;
 
         DirectionSelectionWin.SetActive(false);
         bool flag = true;
@@ -224,7 +222,7 @@ public class SpellChoosing : MonoBehaviour
             {
                 flag = false;
                 MagicShieldBtn.interactable = true;
-                UsedShield = false;
+                player.UsedShield = false;
                 player.RemoveAction(player.PlayerActions.Count - 1);
                 player.ActionCount += MagicShield.actionsCost;
                 player.Mana += MagicShield.manacost;
