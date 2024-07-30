@@ -22,6 +22,9 @@ public class TurnController : MonoBehaviour
     public Player Player1;
     public Player Player2;
     public int PlayerTurn;
+    public GameManager gameManager;
+    public GameObject ReloadPrefab;
+    public GameObject Reloads;
     Player player;
 
     List<int> player1Movements;
@@ -185,28 +188,85 @@ public class TurnController : MonoBehaviour
                     player1Atacks.RemoveAt(i);
                 }
                 else
-                if (player1Atacks[i] == 10)
+                if (player1Atacks[i] == 10 )
                 {
-                    if(Player2.Position == player1Atacks[i+1])
+                    if (gameManager.IsReloadedPosition[player1Atacks[i+1]-1] == true)
                     {
-                        if (Player2.Protected == false)
+                        gameManager.IsReloadedPosition[player1Atacks[i+1]-1] = false;
+                        if (Player1.Position == player1Atacks[i+1])
                         {
-                            Player2.Hp -= Reload.damage;
+                            if (Player1.Protected == false)
+                            {
+                                Player1.Hp -= Reload.damage;
+                            }
+                            else
+                            {
+                                Player1.ProtectedImg.SetActive(false);
+                                Player1.Protected = false;
+                                //In the future, each player will have their own spell upgrades, and it will be possible to change the parameter of mana received from the shield. For now, I'll just leave it like this, so that later it will be clear where to change.
+                                int ShieldValue = 2;
+                                Player2.Mana += ShieldValue;
+                            }      
                         }
-                        else
+                        if (Player2.Position == player1Atacks[i+1])
                         {
-                            Player2.ProtectedImg.SetActive(false);
-                            Player2.Protected = false;
-                            //In the future, each player will have their own spell upgrades, and it will be possible to change the parameter of mana received from the shield. For now, I'll just leave it like this, so that later it will be clear where to change.
-                            int ShieldValue = 2;
-                            Player2.Mana += ShieldValue;
-                        }      
+                            if (Player2.Protected == false)
+                            {
+                                Player2.Hp -= Reload.damage;
+                            }
+                            else
+                            {
+                                Player2.ProtectedImg.SetActive(false);
+                                Player2.Protected = false;
+                                //In the future, each player will have their own spell upgrades, and it will be possible to change the parameter of mana received from the shield. For now, I'll just leave it like this, so that later it will be clear where to change.
+                                int ShieldValue = 2;
+                                Player2.Mana += ShieldValue;
+                            }      
+                        }
+                        Destroy(GameObject.FindGameObjectWithTag(player1Atacks[i+1].ToString()));   
                     }
+                    else
+                    {
+                        gameManager.IsReloadedPosition[player1Atacks[i+1]-1] = true;
+                        GameObject obj = Instantiate(ReloadPrefab, Vector3.zero, Quaternion.identity);
+                        obj.transform.SetParent(Reloads.transform);
+                        obj.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+                        if (player1Atacks[i+1] == 1 )
+                        {
+                            obj.transform.localPosition =  new Vector3(-770,105,0);
+                            obj.tag = "1";  
+                        }
+                        else if (player1Atacks[i+1] == 2)
+                        {
+                            obj.transform.localPosition =  new Vector3(-770,-60,0);
+                            obj.tag = "2";
+                        }
+                        else if (player1Atacks[i+1] == 3)
+                        {
+                            obj.transform.localPosition =  new Vector3(-770,-220,0);
+                            obj.tag = "3";
+                        }
+                        else if (player1Atacks[i+1] == 4)
+                        {
+                            obj.transform.localPosition =  new Vector3(770,105,0);
+                            obj.tag = "4";
+                        }
+                        else if (player1Atacks[i+1] == 5)
+                        {
+                            obj.transform.localPosition =  new Vector3(770,-60,0);
+                            obj.tag = "5";
+                        }
+                        else if (player1Atacks[i+1] == 6)
+                        {
+                            obj.transform.localPosition =  new Vector3(770,-220,0);
+                            obj.tag = "6";
+                        }
+                    } 
                     player1Atacks.RemoveAt(i+1);
-                    player1Atacks.RemoveAt(i);
+                    player1Atacks.RemoveAt(i); 
                 } 
             }
-             for (int i = 0;player2Atacks.Count > 1;)
+            for (int i = 0;player2Atacks.Count > 1;)
             {
                if (player2Atacks[i] == 9)
                 {
@@ -226,35 +286,95 @@ public class TurnController : MonoBehaviour
                         }    
                            
                     }
-                    player2Atacks.RemoveAt(i+1);
-                    player2Atacks.RemoveAt(i);
                 }
                 else
-                if (player2Atacks[i] == 10)
+                if (player2Atacks[i] == 10 )
                 {
-                    if (Player1.Protected == false)
+                    if (gameManager.IsReloadedPosition[player2Atacks[i+1]-1] == true)
+                    {
+                        gameManager.IsReloadedPosition[player2Atacks[i+1]-1] = false;
+                        if (Player1.Position == player2Atacks[i+1])
                         {
-                            Player1.Hp -= Reload.damage;
+                            if (Player1.Protected == false)
+                            {
+                                Player1.Hp -= Reload.damage;
+                            }
+                            else
+                            {
+                                Player1.ProtectedImg.SetActive(false);
+                                Player1.Protected = false;
+                                //In the future, each player will have their own spell upgrades, and it will be possible to change the parameter of mana received from the shield. For now, I'll just leave it like this, so that later it will be clear where to change.
+                                int ShieldValue = 2;
+                                Player2.Mana += ShieldValue;
+                            }      
                         }
-                        else
+                        if (Player2.Position == player2Atacks[i+1])
                         {
-                            Player1.ProtectedImg.SetActive(false);
-                            Player1.Protected = false;
-                            //In the future, each player will have their own spell upgrades, and it will be possible to change the parameter of mana received from the shield. For now, I'll just leave it like this, so that later it will be clear where to change.
-                            int ShieldValue = 2;
-                            Player1.Mana += ShieldValue;
-                        }    
+                            if (Player2.Protected == false)
+                            {
+                                Player2.Hp -= Reload.damage;
+                            }
+                            else
+                            {
+                                Player2.ProtectedImg.SetActive(false);
+                                Player2.Protected = false;
+                                //In the future, each player will have their own spell upgrades, and it will be possible to change the parameter of mana received from the shield. For now, I'll just leave it like this, so that later it will be clear where to change.
+                                int ShieldValue = 2;
+                                Player2.Mana += ShieldValue;
+                            }      
+                        }
+                        Destroy(GameObject.FindGameObjectWithTag(player2Atacks[i+1].ToString()));
+                    }
+                    else
+                    {
+                        gameManager.IsReloadedPosition[player2Atacks[i+1]-1] = true;
+                        GameObject obj = Instantiate(ReloadPrefab, Vector3.zero, Quaternion.identity);
+                        obj.transform.SetParent(Reloads.transform);
+                        obj.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+                        
+                        if (player2Atacks[i+1] == 1 )
+                        {
+                            obj.transform.localPosition =  new Vector3(-770,105,0);
+                            obj.tag = "1";  
+                        }
+                        else if (player2Atacks[i+1] == 2)
+                        {
+                            obj.transform.localPosition =  new Vector3(-770,-60,0);
+                            obj.tag = "2";
+                        }
+                        else if (player2Atacks[i+1] == 3)
+                        {
+                            obj.transform.localPosition =  new Vector3(-770,-220,0);
+                            obj.tag = "3";
+                        }
+                        else if (player2Atacks[i+1] == 4)
+                        {
+                            obj.transform.localPosition =  new Vector3(770,105,0);
+                            obj.tag = "4";
+                        }
+                        else if (player2Atacks[i+1] == 5)
+                        {
+                            obj.transform.localPosition =  new Vector3(770,-60,0);
+                            obj.tag = "5";
+                        }
+                        else if (player2Atacks[i+1] == 6)
+                        {
+                            obj.transform.localPosition =  new Vector3(770,-220,0);
+                            obj.tag = "6";
+                        }
+                    } 
                     player2Atacks.RemoveAt(i+1);
-                    player2Atacks.RemoveAt(i);
-                } 
+                    player2Atacks.RemoveAt(i); 
+                }
             }
             PlayerTurn --;
             TurnTxt.text = "Ход " + (PlayerTurn + 1).ToString() + "-го игрока" ;
+            Player1.UpdateHP();
+            Player2.UpdateHP();
+            Player1.UpdateMana();
+            Player2.UpdateMana();
         }
-        Player1.UpdateHP();
-        Player2.UpdateHP();
-        Player1.UpdateMana();
-        Player2.UpdateMana();
+        
 
         if(Player1.Hp <= 0 && Player2.Hp <= 0)
         {
